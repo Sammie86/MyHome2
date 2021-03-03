@@ -1,24 +1,23 @@
-import csv
+def main():
+    x1 = int(input())
+    y1 = int(input())
+    n1 = int(input())
 
-# user input for the file
-fileName = input()
+    x2 = int(input())
+    y2 = int(input())
+    n2 = int(input())
 
-# dictionary to store words with their frequencies
-wordsFrequency = {}
+    solution_found = False
 
-# reading the file
-with open(fileName, 'r') as csvfile:
-    csvreader = csv.reader(csvfile)
-# iterating throught each row
-for row in csvreader:
-    for word in row:
-# checking if word exixt in the dictionary or not if not present then add the word in the dictionary with frequency 1
-      if word not in wordsFrequency.keys():
-        wordsFrequency[word] = 1
-# else increase the frequency by 1
-else:
-    wordsFrequency[word] += 1
+    for x in range(-10, 11):
+        for y in range(-10, 11):
+            if x1 * x + y1 * y == n1 and x2 * x + y2 * y == n2:
+                print(x, y)
+                solution_found = True
 
-# printin the result
-for key in wordsFrequency.keys():
-    print(key + " " + str(wordsFrequency[key]))
+    if not solution_found:
+        print("No solution")
+
+
+if __name__ == '__main__':
+    main()
